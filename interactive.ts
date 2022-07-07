@@ -34,11 +34,11 @@ const configBadMispell ={
     'min_chan_size': 1
 }
 
-console.assert(check(configGood) === undefined, 'Our good case should be undefined')
-console.assert(check(configBadCheck) === `Maximum Channel Size must exceed Minimum Channel Size`, 'Our check should tell us that something is wrong')
-console.assert(typeof check(configBadType) === 'string', 'For the bad type, we should be returning an error')
-console.assert(check(configBadType) !== `Maximum Channel Size must exceed Minimum Channel Size`, 'The error returned from the check shouldn\'t be the same as our error')
-console.assert(check(configBadMispell) === `Maximum Channel Size must exceed Minimum Channel Size`, 'Misspel will count as not exist, and therefore the original error')
+console.assert(check(configGood) === undefined, 'Our good case should be undefined', check(configGood))
+console.assert(check(configBadCheck) === `Maximum Channel Size must exceed Minimum Channel Size`, 'Our check should tell us that something is wrong', check(configBadCheck))
+console.assert(typeof check(configBadType) === 'string', 'For the bad type, we should be returning an error', check(configBadType))
+console.assert(check(configBadType) !== `Maximum Channel Size must exceed Minimum Channel Size`, 'The error returned from the check shouldn\'t be the same as our error', check(configBadType))
+console.assert(check(configBadMispell) === `Maximum Channel Size must exceed Minimum Channel Size`, 'Misspel will count as not exist, and therefore the original error', check(configBadMispell))
 
 
 
