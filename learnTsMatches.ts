@@ -232,7 +232,7 @@ console.assert(
 /// We can escape knowing the shape is wrong
 console.assert(
   checkConfig2(possibleConfig) ===
-    `Input is the wrong shape`,
+  `Input is the wrong shape`,
 );
 
 
@@ -304,19 +304,19 @@ console.assert(
 
 /// Now we use the matcher to check the type
 function checkConfig3(config: ContractsCallingConfig) {
-    if (!configMatcher.test(config)) {
-      return configMatcher.errorMessage(config);
-    }
-    if (config.retainBlocks + 5 > 10) {
-      return "Retaining too many";
-    }
+  if (!configMatcher.test(config)) {
+    return configMatcher.errorMessage(config);
   }
-  
+  if (config.retainBlocks + 5 > 10) {
+    return "Retaining too many";
+  }
+}
+
 /// We can escape knowing the shape is wrong
 console.assert(
-    checkConfig3(possibleConfig) === `["retainBlocks"]number("2")`,
-  );
-  
+  checkConfig3(possibleConfig) === `["retainBlocks"]number("2")`,
+);
+
 /// And the messages we get back are in the shape of  `<path><checker>(<whatValueWasWrong>)`
 
 
@@ -403,18 +403,18 @@ console.assert(
 /// but we need to deal with a thrown error, hence the name usafe case
 
 function checkConfigUnsafe(input: ContractsCallingConfig) {
-    try {
-      const config = configMatcher.unsafeCast(input);
-      if (config.retainBlocks + 5 > 10) {
-        return "Retaining too many";
-      }
-    } catch (e) {
-      return e.message;
+  try {
+    const config = configMatcher.unsafeCast(input);
+    if (config.retainBlocks + 5 > 10) {
+      return "Retaining too many";
     }
+  } catch (e) {
+    return e.message;
   }
+}
 
 /// But on the weird shape, now are told that it is weird
 console.assert(
-    checkConfigUnsafe(possibleConfig) ===
-      `Failed type: ["retainBlocks"]number("2") given input {"name":"lnd","retainBlocks":"2"}`,
-  );
+  checkConfigUnsafe(possibleConfig) ===
+  `Failed type: ["retainBlocks"]number("2") given input {"name":"lnd","retainBlocks":"2"}`,
+);

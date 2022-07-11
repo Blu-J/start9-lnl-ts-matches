@@ -12,7 +12,7 @@ import matches from "https://deno.land/x/ts_matches@v5.2.0/mod.ts";
 // Taken from https://github.com/Start9Labs/lnd-wrapper/blob/4c31721506d81b960e1026991465a792d43a72d3/assets/compat/config_rules.yaml
 
 
-function check(configIn: Record<string, unknow>): string | void {
+function check(configIn: Record<string, unknown>): string | void {
     /// TODO
 }
 
@@ -21,15 +21,15 @@ const configGood = {
     'max-chan-size': 2,
     'min-chan-size': 1,
 }
-const configBadCheck ={
+const configBadCheck = {
     'max-chan-size': 2,
     'min-chan-size': 3,
 }
-const configBadType ={
+const configBadType = {
     'max-chan-size': '2',
     'min-chan-size': '1',
 }
-const configBadMispell ={
+const configBadMispell = {
     'max_chan_size': 2,
     'min_chan_size': 1
 }
